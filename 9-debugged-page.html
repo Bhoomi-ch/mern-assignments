@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Debugged Page - HTML &amp; CSS course assignment">
+  <title>Debugged Page</title>
+</head>
+<body>
+  <!--
+  ORIGINAL BUGGY CODE (what was given):
+
+  <html>
+  <head>
+    <title>Buggy Page
+  </head>
+  <body>
+    <h1>My Hobbies<h2>
+    <p>I like <b>cricket and <i>music</b></i>.
+    <img src="photo.jpg">
+    <a href=google.com>Search</a>
+    <ul>
+      <li>Reading
+      <li>Coding
+    <ol>
+    <table>
+      <tr><td>Name<td>Age
+    </table>
+    <br/><p>Footer text</div>
+  </body>
+
+  BUGS I FOUND AND FIXED:
+  1. The page had no <!DOCTYPE html> and no lang attribute. I added both.
+  2. There was no <meta charset>. I added it.
+  3. The <title> was never closed. I added </title>.
+  4. <h1> was closed with </h2>. Opening and closing tags must match.
+  5. The <p> was not closed. I added </p>.
+  6. <b> and <i> were wrongly nested. I closed them in reverse order.
+  7. The <img> had no alt text. I added an alt attribute.
+  8. The link had no quotes and no https://. I fixed both.
+  9. The <ul> was never closed, and a stray <ol> was opened instead.
+  10. The <li> items were not closed. I added </li>.
+  11. The table cells were not closed and there was no heading row. I added </td>, <thead> and <th>.
+  12. There was a </div> with no opening <div>. I removed it.
+  -->
+
+  <h1>My Hobbies</h1>
+  <p>I like <b>cricket and <i>music</i></b>.</p>
+  <img src="photo.jpg" alt="Me playing cricket" width="200">
+  <p><a href="https://www.google.com">Search</a></p>
+
+  <ul>
+    <li>Reading</li>
+    <li>Coding</li>
+  </ul>
+
+  <table border="1">
+    <thead>
+      <tr><th>Name</th><th>Age</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>YOUR NAME</td><td>YOUR AGE</td></tr>
+    </tbody>
+  </table>
+
+  <p>Footer text</p>
+</body>
+</html>
