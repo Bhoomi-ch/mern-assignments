@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio magazine layout using CSS Grid by Bhoomi">
+    <title>Portfolio Magazine Layout - Bhoomi</title>
+    <style>
+        :root {
+            --ink: #0f172a;
+            --paper: #ffffff;
+            --accent: #2563eb;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            background-color: var(--paper);
+            color: var(--ink);
+            line-height: 1.6;
+        }
+
+        /* Magazine Grid Layout */
+        .layout {
+            display: grid;
+            max-width: 1200px;
+            margin: 0 auto;
+            gap: 1.5rem;
+            padding: 1.5rem;
+            grid-template-columns: repeat(12, 1fr);
+            grid-template-areas:
+                "head  head  head  head  head  head  head  head  head  head  head  head"
+                "hero  hero  hero  hero  hero  hero  about about about about about about"
+                "p1    p1    p1    p2    p2    p2    p3    p3    p3    p4    p4    p4"
+                "skills skills skills skills skills contact contact contact contact contact contact contact"
+                "foot  foot  foot  foot  foot  foot  foot  foot  foot  foot  foot  foot";
+        }
+
+        /* Header */
+        head {
+            grid-area: head;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid var(--ink);
+            padding-bottom: 1rem;
+        }
+
+        head h1 {
+            font-size: 1.75rem;
+            font-weight: 700;
+        }
+
+        head nav a {
+            margin-left: 1.5rem;
+            color: var(--ink);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        head nav a:hover {
+            color: var(--accent);
+        }
+
+        /* Hero Section */
+        .hero {
+            grid-area: hero;
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            min-height: 280px;
+            background: #1e293b;
+        }
+
+        .hero img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.85;
+        }
+
+        .hero h2 {
+            position: absolute;
+            left: 1.5rem;
+            bottom: 1.5rem;
+            color: #ffffff;
+            font-size: 1.5rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+            max-width: 400px;
+        }
+
+        /* About Section */
+        .about {
+            grid-area: about;
+            background: #f8fafc;
+            color: var(--ink);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .about h2 {
+            color: var(--accent);
+            margin-bottom: 0.75rem;
+            font-size: 1.35rem;
+        }
+
+        /* Project Cards */
+        .p1 { grid-area: p1; }
+        .p2 { grid-area: p2; }
+        .p3 { grid-area: p3; }
+        .p4 { grid-area: p4; }
+
+        .project-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            padding: 1.25rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02);
+            transition: transform 0.2s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-3px);
+        }
+
+        .project-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.4rem;
+            color: var(--ink);
+        }
+
+        .project-card p {
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+
+        /* Skills Section */
+        .skills {
+            grid-area: skills;
+            background: #f8fafc;
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .skills h2 {
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .skills ul {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.75rem;
+            list-style: none;
+        }
+
+        .skills li {
+            background: #ffffff;
+            border: 1px solid #cbd5e1;
+            padding: 0.5rem 0.75rem;
+            text-align: center;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        /* Contact Section */
+        .contact {
+            grid-area: contact;
+            background: #1e293b;
+            color: #ffffff;
+            padding: 1.5rem;
+            border-radius: 12px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .contact h2 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: #38bdf8;
+        }
+
+        .contact p {
+            color: #cbd5e1;
+            font-size: 0.95rem;
+        }
+
+        /* Footer */
+        foot {
+            grid-area: foot;
+            text-align: center;
+            color: #64748b;
+            padding-top: 1rem;
+            font-size: 0.875rem;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 900px) {
+            .layout {
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-areas:
+                    "head head"
+                    "hero hero"
+                    "about about"
+                    "p1 p2"
+                    "p3 p4"
+                    "skills skills"
+                    "contact contact"
+                    "foot foot";
+            }
+        }
+
+        @media (max-width: 600px) {
+            .layout {
+                grid-template-columns: 1fr;
+                grid-template-areas:
+                    "head"
+                    "hero"
+                    "about"
+                    "p1"
+                    "p2"
+                    "p3"
+                    "p4"
+                    "skills"
+                    "contact"
+                    "foot";
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="layout">
+        <!-- Header -->
+        <head>
+            <h1>Bhoomi Chaudhary</h1>
+            <nav>
+                <a href="#projects">Projects</a>
+                <a href="#skills">Skills</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </head>
+
+        <!-- Hero -->
+        <section class="hero">
+            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71" alt="AI Analytics workspace">
+            <h2>AI & Data Analytics Portfolio &bull;</h2>
+        </section>
+
+        <!-- About -->
+        <section class="about">
+            <h2>About Me</h2>
+            <p>I am a BCA Artificial Intelligence student passionate about building clean responsive web interfaces, automated urban mapping systems, and data-driven solutions using Python and CSS Grid.</p>
+        </section>
+
+        <!-- Projects -->
+        <article class="project-card p1">
+            <h3>Urban Parcel Mapping</h3>
+            <p>AI-based cadastral feature extraction system using drone imagery.</p>
+        </article>
+
+        <article class="project-card p2">
+            <h3>Centered Login Form</h3>
+            <p>Modern responsive authentication UI built with pure Flexbox.</p>
+        </article>
+
+        <article class="project-card p3">
+            <h3>Photo Gallery Grid</h3>
+            <p>Masonry-style photo showcase using CSS Grid spanning rules.</p>
+        </article>
+
+        <article class="project-card p4">
+            <h3>Analytics Dashboard</h3>
+            <p>Comprehensive layout built with grid template areas.</p>
+        </article>
+
+        <!-- Skills -->
+        <section class="skills" id="skills">
+            <h2>Core Competencies</h2>
+            <ul>
+                <li>Python & Pandas</li>
+                <li>HTML5 & CSS Grid</li>
+                <li>Data Visualization</li>
+                <li>UI Component Design</li>
+            </ul>
+        </section>
+
+        <!-- Contact -->
+        <section class="contact" id="contact">
+            <h2>Get in Touch</h2>
+            <p>bhoomi@example.com &bull; Moradabad, India</p>
+        </section>
+
+        <!-- Footer -->
+        <foot>
+            <p>&copy; 2026 Bhoomi Chaudhary &bull; All rights reserved.</p>
+        </foot>
+    </div>
+
+</body>
+</html>

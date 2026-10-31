@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Bhoomi Café - Finished, fully responsive landing page.">
+    <title>Bhoomi Café - Responsive Landing Page</title>
+    <style>
+        /* --- DESIGN TOKENS --- */
+        :root {
+            --cream: #ffffff;
+            --brown: #1e293b;
+            --green: #2563eb;
+            --gold: #d97706;
+            --radius: 12px;
+        }
+
+        /* --- BASE RESET --- */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            background: var(--cream);
+            color: var(--brown);
+            line-height: 1.6;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .wrap {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--green);
+            color: #ffffff;
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--radius);
+            font-weight: 600;
+            transition: background 0.2s;
+        }
+
+        .btn:hover {
+            background: #1d4ed8;
+        }
+
+        h2 {
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        /* --- HEADER / NAV --- */
+        .site-header {
+            padding-block: 1rem;
+            border-bottom: 1px solid #e2e8f0;
+            background: #ffffff;
+            position: relative;
+        }
+
+        .site-header .wrap {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--green);
+        }
+
+        .site-nav ul {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+            font-weight: 500;
+        }
+
+        .site-nav ul a:hover {
+            color: var(--green);
+        }
+
+        /* --- HERO --- */
+        .hero {
+            padding-block: 4rem;
+        }
+
+        .hero .wrap {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .hero h1 {
+            font-size: 2.75rem;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+            color: var(--brown);
+        }
+
+        .hero p {
+            margin-bottom: 1.5rem;
+            color: #64748b;
+            font-size: 1.1rem;
+        }
+
+        .hero img {
+            border-radius: var(--radius);
+            height: 380px;
+            width: 100%;
+            object-fit: cover;
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.05);
+        }
+
+        /* --- MENU --- */
+        .menu {
+            padding-block: 4rem;
+            background: #f8fafc;
+            border-top: 1px solid #e2e8f0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .menu_grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .dish {
+            border-radius: var(--radius);
+            overflow: hidden;
+            border: 1px solid #e2e8f0;
+            background: #ffffff;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .dish img {
+            height: 200px;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .dish_body {
+            padding: 1.25rem;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            justify-content: space-between;
+        }
+
+        .dish_row {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 0.5rem;
+        }
+
+        .dish_row h3 {
+            font-size: 1.15rem;
+        }
+
+        .dish_price {
+            color: var(--green);
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .dish_body p {
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+
+        /* --- ABOUT --- */
+        .about {
+            padding-block: 4rem;
+        }
+
+        .about .wrap {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about img {
+            border-radius: var(--radius);
+            height: 350px;
+            width: 100%;
+            object-fit: cover;
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.05);
+        }
+
+        .about h2 {
+            text-align: left;
+            margin-bottom: 1rem;
+        }
+
+        .about p {
+            color: #64748b;
+            font-size: 1.05rem;
+        }
+
+        /* --- CONTACT / FOOTER --- */
+        .contact {
+            background: var(--brown);
+            color: #ffffff;
+            padding-block: 4rem;
+            text-align: center;
+        }
+
+        .contact h2 {
+            color: #ffffff;
+            margin-bottom: 1rem;
+        }
+
+        .contact p {
+            color: #cbd5e1;
+            margin-bottom: 1.5rem;
+        }
+
+        .site-footer {
+            background: #0f172a;
+            color: #94a3b8;
+            padding-block: 1.5rem;
+            font-size: 0.875rem;
+        }
+
+        .site-footer .wrap {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        /* --- MOBILE NAV (NO JS HAMBURGER) --- */
+        #nav-toggle, .burger {
+            display: none;
+        }
+
+        .burger {
+            font-size: 1.5rem;
+            cursor: pointer;
+            line-height: 1;
+        }
+
+        /* --- RESPONSIVE: TABLET (<= 900px) --- */
+        @media (max-width: 900px) {
+            .hero .wrap,
+            .about .wrap {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .hero {
+                text-align: center;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero img {
+                height: 300px;
+            }
+
+            .menu_grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .about h2, .about {
+                text-align: center;
+            }
+        }
+
+        /* --- RESPONSIVE: PHONE (<= 600px) --- */
+        @media (max-width: 600px) {
+            .burger {
+                display: block;
+            }
+
+            .site-nav {
+                display: none;
+                width: 100%;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                background: #ffffff;
+                border-bottom: 1px solid #e2e8f0;
+                box-shadow: 0 10px 15px -3px rgba(0,0,0,0.05);
+            }
+
+            #nav-toggle:checked ~ .site-nav {
+                display: block;
+            }
+
+            .site-nav ul {
+                flex-direction: column;
+                gap: 0;
+                text-align: center;
+                padding: 0.5rem 0;
+            }
+
+            .site-nav a {
+                display: block;
+                padding: 0.75rem;
+                border-top: 1px solid #f1f5f9;
+            }
+
+            .hero .wrap {
+                padding-block: 2rem;
+            }
+
+            .hero h1 {
+                font-size: 1.75rem;
+            }
+
+            .hero img {
+                height: 220px;
+            }
+
+            .menu_grid {
+                grid-template-columns: 1fr;
+            }
+
+            .site-footer .wrap {
+                flex-direction: column;
+                text-align: center;
+                gap: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header & Nav -->
+    <header class="site-header">
+        <div class="wrap">
+            <a class="logo" href="#">Bhoomi Café</a>
+
+            <input type="checkbox" id="nav-toggle">
+            <label for="nav-toggle" class="burger" aria-label="Toggle Menu">&#9776;</label>
+
+            <nav class="site-nav" aria-label="Main">
+                <ul>
+                    <li><a href="#menu">Menu</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="wrap">
+                <div>
+                    <h1>Fresh coffee, calm moments.</h1>
+                    <p>Small-batch roasts and homemade bakes, served in the heart of Moradabad. Crafted with care by Bhoomi (BCA AI Student).</p>
+                    <a class="btn" href="#menu">See Our Menu</a>
+                </div>
+                <div>
+                    <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085" alt="Cup of coffee on a wooden table">
+                </div>
+            </div>
+        </section>
+
+        <!-- Menu Section -->
+        <section class="menu" id="menu">
+            <div class="wrap">
+                <h2>Our Favourites</h2>
+                <div class="menu_grid">
+                    <article class="dish">
+                        <img src="https://images.unsplash.com/photo-1541167760496-1628856ab772" alt="Latte with milk-foam art">
+                        <div class="dish_body">
+                            <div class="dish_row">
+                                <h3>Signature Latte</h3>
+                                <span class="dish_price">₹180</span>
+                            </div>
+                            <p>Double espresso with silky steamed milk.</p>
+                        </div>
+                    </article>
+
+                    <article class="dish">
+                        <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a" alt="Freshly baked croissants">
+                        <div class="dish_body">
+                            <div class="dish_row">
+                                <h3>Butter Croissant</h3>
+                                <span class="dish_price">₹130</span>
+                            </div>
+                            <p>Baked every morning, flaky and golden.</p>
+                        </div>
+                    </article>
+
+                    <article class="dish">
+                        <img src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c" alt="Slice of chocolate cake">
+                        <div class="dish_body">
+                            <div class="dish_row">
+                                <h3>Choco Cake</h3>
+                                <span class="dish_price">₹210</span>
+                            </div>
+                            <p>Rich dark chocolate with a molten centre.</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="about" id="about">
+            <div class="wrap">
+                <div>
+                    <img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb" alt="Cozy café interior with warm lighting">
+                </div>
+                <div>
+                    <h2>Our Story</h2>
+                    <p>Bhoomi Café began as a tiny corner stall in 2026. Today it is a cozy space where students, artists, and tech enthusiasts meet over honest food and great coffee.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="contact" id="contact">
+            <div class="wrap">
+                <h2>Visit Us</h2>
+                <p>Civil Lines Road, Moradabad &bull; Open daily 8 AM &ndash; 10 PM</p>
+                <a class="btn" href="tel:9999999999">Call to Reserve</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="wrap">
+            <p>&copy; 2026 Bhoomi Café &bull; Moradabad, India</p>
+            <p><a href="#">Instagram</a> &bull; <a href="#">Facebook</a></p>
+        </div>
+    </footer>
+
+</body>
+</html>

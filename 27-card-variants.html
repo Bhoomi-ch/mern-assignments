@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Three Card Variants using border-radius and backgrounds by Bhoomi.">
+    <title>Card Variants - Bhoomi</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            background-color: #ffffff;
+            color: #0f172a;
+            line-height: 1.6;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        h1 {
+            text-align: center;
+            color: #1e293b;
+            margin-bottom: 2rem;
+        }
+
+        .cards {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: center;
+        }
+
+        .card {
+            width: 280px;
+            padding: 1.5rem;
+            margin: 0;
+            border-radius: 12px;
+        }
+
+        .card h2 {
+            margin-top: 0;
+            font-size: 1.25rem;
+        }
+
+        .card a {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 0.5rem 1rem;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 6px;
+            font-size: 0.9rem;
+        }
+
+        /* Variant 1 - Soft Rounded & Shadow */
+        .card-soft {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+
+        .card-soft h2 {
+            color: #2563eb;
+        }
+
+        .card-soft a {
+            background: #2563eb;
+            color: #ffffff;
+        }
+
+        /* Variant 2 - Gradient Background, Asymmetric Feel */
+        .card-gradient {
+            background: linear-gradient(135deg, #38bdf8, #6366f1);
+            color: #ffffff;
+            border-radius: 20px 4px 20px 4px;
+        }
+
+        .card-gradient h2 {
+            color: #ffffff;
+        }
+
+        .card-gradient a {
+            background: #ffffff;
+            color: #4f46e5;
+        }
+
+        /* Variant 3 - Outlined, Clean Light Theme Style */
+        .card-outline {
+            background: #ffffff;
+            border: 2px solid #0f172a;
+        }
+
+        .card-outline h2 {
+            color: #0f172a;
+        }
+
+        .card-outline a {
+            background: #0f172a;
+            color: #ffffff;
+        }
+
+        .card-outline a:hover {
+            background: #334155;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 1rem;
+            border-top: 1px solid #e2e8f0;
+            color: #64748b;
+            font-size: 0.875rem;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Card Variants Showcase</h1>
+    
+    <div class="cards">
+        <!-- Variant 1 -->
+        <article class="card card-soft">
+            <h2>Soft Shadow Card</h2>
+            <p>Clean white/light surface background, soft rounded corners, and a gentle drop shadow for depth.</p>
+            <a href="#">Read More</a>
+        </article>
+
+        <!-- Variant 2 -->
+        <article class="card card-gradient">
+            <h2>Gradient Card</h2>
+            <p>Vibrant gradient background with two rounded corners and two sharp asymmetric corners.</p>
+            <a href="#">Read More</a>
+        </article>
+
+        <!-- Variant 3 -->
+        <article class="card card-outline">
+            <h2>Outlined Card</h2>
+            <p>Minimalist white background, strong dark borders, and a sharp, high-contrast look.</p>
+            <a href="#">Read More</a>
+        </article>
+    </div>
+
+    <footer>
+        <small>&copy; 2026 Bhoomi &bull; All rights reserved.</small>
+    </footer>
+
+</body>
+</html>

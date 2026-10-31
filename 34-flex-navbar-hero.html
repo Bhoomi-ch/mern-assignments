@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Responsive Navbar and Hero Section using Flexbox by Bhoomi">
+    <title>Flexbox Navbar & Hero - Bhoomi</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            background-color: #ffffff;
+            color: #0f172a;
+            line-height: 1.6;
+        }
+
+        /* NAVBAR STYLES */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            background: #ffffff;
+            border-bottom: 1px solid #e2e8f0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+            position: relative;
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 1.25rem;
+            color: #0f172a;
+        }
+
+        .links {
+            display: flex;
+            list-style: none;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .links a {
+            text-decoration: none;
+            color: #475569;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .links a:hover {
+            color: #2563eb;
+        }
+
+        .links .cta {
+            background: #2563eb;
+            color: #ffffff;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-weight: 600;
+        }
+
+        .links .cta:hover {
+            background: #1d4ed8;
+            color: #ffffff;
+        }
+
+        /* Mobile Menu Checkbox Toggle */
+        #toggle, .burger {
+            display: none;
+        }
+
+        /* HERO SECTION STYLES */
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero_text {
+            flex: 1;
+        }
+
+        .hero_text h1 {
+            font-size: clamp(2rem, 4vw, 3.2rem);
+            line-height: 1.25;
+            color: #0f172a;
+            margin-bottom: 1rem;
+        }
+
+        .hero_text p {
+            color: #64748b;
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            max-width: 540px;
+        }
+
+        .hero_btns {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+
+        .btn-primary {
+            background: #2563eb;
+            color: #ffffff;
+        }
+
+        .btn-primary:hover {
+            background: #1d4ed8;
+        }
+
+        .btn-ghost {
+            border: 1px solid #cbd5e1;
+            color: #0f172a;
+            background: #ffffff;
+        }
+
+        .btn-ghost:hover {
+            background: #f8fafc;
+            border-color: #94a3b8;
+        }
+
+        .hero_img {
+            flex: 1;
+        }
+
+        .hero_img img {
+            width: 100%;
+            border-radius: 12px;
+            display: block;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08);
+        }
+
+        /* RESPONSIVE STYLES */
+        @media (max-width: 768px) {
+            .burger {
+                display: block;
+                font-size: 1.5rem;
+                cursor: pointer;
+            }
+
+            .links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                flex-direction: column;
+                background: #ffffff;
+                padding: 1.5rem;
+                border-bottom: 1px solid #e2e8f0;
+                box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+            }
+
+            #toggle:checked ~ .links {
+                display: flex;
+            }
+
+            .hero {
+                flex-direction: column-reverse;
+                text-align: center;
+                padding: 2rem 1rem;
+            }
+
+            .hero_btns {
+                justify-content: center;
+            }
+
+            .hero_text p {
+                margin-inline: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Flexbox Navbar -->
+    <nav class="navbar">
+        <span class="logo">Bhoomi AI</span>
+        
+        <input type="checkbox" id="toggle">
+        <label for="toggle" class="burger" aria-label="Toggle Menu">&#9776;</label>
+
+        <ul class="links">
+            <li><a href="#features">Features</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#cta" class="cta">Get Started</a></li>
+        </ul>
+    </nav>
+
+    <!-- Flexbox Hero Section -->
+    <header class="hero">
+        <div class="hero_text">
+            <h1>Build faster with AI solutions you can trust.</h1>
+            <p>Designed and crafted by Bhoomi (BCA AI Student, Moradabad). Deploy, scale, and monitor your web applications in minutes.</p>
+            <div class="hero_btns">
+                <a class="btn btn-primary" href="#start">Start Free</a>
+                <a class="btn btn-ghost" href="#demo">Watch Demo</a>
+            </div>
+        </div>
+        <div class="hero_img">
+            <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97" alt="Developer laptop showing code dashboard">
+        </div>
+    </header>
+
+</body>
+</html>

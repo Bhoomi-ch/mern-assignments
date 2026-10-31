@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Resume Font and Colour Styling - Bhoomi Chaudhary">
+    <title>Bhoomi Chaudhary - Resume Styling</title>
+    <style>
+        :root {
+            --bg-color: #0b0f19;
+            --card-bg: #131b2e;
+            --primary-accent: #38bdf8;
+            --secondary-accent: #818cf8;
+            --text-main: #f1f5f9;
+            --text-muted: #94a3b8;
+            --border-color: #1e293b;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+
+        /* Typography Customization */
+        h1, h2, h3 {
+            font-family: 'Georgia', serif;
+            letter-spacing: -0.5px;
+        }
+
+        header {
+            background: var(--card-bg);
+            color: var(--text-main);
+            padding: 2.5rem 2rem;
+            text-align: center;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 2rem;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.4rem;
+            color: var(--primary-accent);
+        }
+
+        header p {
+            color: var(--text-muted);
+            margin: 0.5rem 0 0 0;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+
+        main {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        section {
+            background: var(--card-bg);
+            padding: 1.5rem 2rem;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+        }
+
+        h2 {
+            color: var(--secondary-accent);
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 0.5rem;
+            margin-top: 0;
+            font-size: 1.3rem;
+        }
+
+        h3 {
+            margin: 0 0 0.25rem 0;
+            color: var(--text-main);
+            font-size: 1.1rem;
+        }
+
+        .meta {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-top: 0;
+            margin-bottom: 0.75rem;
+        }
+
+        .skills {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin: 0;
+        }
+
+        .skills li {
+            background: #1e293b;
+            color: var(--primary-accent);
+            padding: 0.4rem 0.9rem;
+            border-radius: 6px;
+            font-weight: 500;
+            font-size: 0.9rem;
+            border: 1px solid #334155;
+        }
+
+        a {
+            color: var(--primary-accent);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            border-top: 1px solid var(--border-color);
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Bhoomi Chaudhary</h1>
+        <p>BCA Artificial Intelligence Student &bull; Data Analyst Aspirant</p>
+    </header>
+
+    <main>
+        <!-- Profile Section -->
+        <section>
+            <h2>Profile</h2>
+            <p>Detail-oriented student based in Moradabad, passionate about transforming data insights into impactful AI solutions and building responsive, accessible web applications.</p>
+        </section>
+
+        <!-- Education Section -->
+        <section>
+            <h2>Education</h2>
+            <h3>Bachelor of Computer Applications (Artificial Intelligence)</h3>
+            <p class="meta">In Progress &bull; Focus on Data Structures, Python, & Machine Learning</p>
+        </section>
+
+        <!-- Projects Section -->
+        <section>
+            <h2>Projects</h2>
+            <h3>Smart India Hackathon Project Track</h3>
+            <p class="meta">AI-Based Automated Urban Parcel Mapping & Cadastral Feature Extraction</p>
+            <p>Working on front-end dashboards, data processing pipelines, and technical documentation layouts.</p>
+        </section>
+
+        <!-- Skills Section -->
+        <section>
+            <h2>Technical Skills</h2>
+            <ul class="skills">
+                <li>Python & Pandas</li>
+                <li>Data Structures & Algorithms</li>
+                <li>HTML5 & CSS3</li>
+                <li>Data Visualization (Matplotlib/Seaborn)</li>
+                <li>Git & GitHub</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>Contact: <a href="mailto:bhoomi@example.com">bhoomi@example.com</a> &bull; Moradabad, India</p>
+        <small>&copy; 2026 Bhoomi Chaudhary</small>
+    </footer>
+
+</body>
+</html>

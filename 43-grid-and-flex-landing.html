@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Landing page recreated using Grid for page layout and Flexbox for components by Bhoomi">
+    <title>Grid + Flex Landing - Bhoomi</title>
+    <style>
+        :root {
+            --blue: #2563eb;
+            --dark: #0f172a;
+            --light: #f8fafc;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            color: var(--dark);
+            line-height: 1.6;
+            background-color: #ffffff;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Macro Page Grid Layout */
+        .page {
+            display: grid;
+            grid-template-rows: auto auto auto auto;
+        }
+
+        .wrap {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            width: 100%;
+        }
+
+        /* Navbar (Flexbox Component) */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-block: 1.25rem;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 1.25rem;
+            color: var(--blue);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+            font-weight: 500;
+        }
+
+        nav ul a:hover {
+            color: var(--blue);
+        }
+
+        /* Hero Section (Grid: 2 Columns) */
+        .hero {
+            padding-block: 4rem;
+            background: #ffffff;
+        }
+
+        .hero_grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 3rem;
+        }
+
+        .hero h1 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+
+        .hero p {
+            margin-bottom: 1.5rem;
+            color: #475569;
+            font-size: 1.1rem;
+        }
+
+        .btn_group {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.2s;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: var(--blue);
+            color: #ffffff;
+        }
+
+        .btn-primary:hover {
+            background: #1d4ed8;
+        }
+
+        .btn-ghost {
+            background: transparent;
+            color: var(--blue);
+            border: 2px solid var(--blue);
+        }
+
+        .btn-ghost:hover {
+            background: #eff6ff;
+        }
+
+        .hero img {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.05);
+            display: block;
+        }
+
+        /* Features Section (Grid: 3 Columns) */
+        .features {
+            background: var(--light);
+            padding-block: 5rem;
+            border-top: 1px solid #e2e8f0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .features h2 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .features_grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature_card {
+            background: #ffffff;
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02);
+        }
+
+        .feature_card h3 {
+            margin-bottom: 0.75rem;
+            font-size: 1.2rem;
+            color: var(--dark);
+        }
+
+        .feature_card p {
+            color: #64748b;
+            font-size: 0.95rem;
+        }
+
+        /* Pricing Section */
+        .pricing {
+            padding-block: 5rem;
+            text-align: center;
+        }
+
+        .pricing h2 {
+            font-size: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .pricing_grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .plan {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 2.5rem 2rem;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .plan.pop {
+            border: 2px solid var(--blue);
+            position: relative;
+        }
+
+        .plan h3 {
+            font-size: 1.35rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .price {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--blue);
+            margin-bottom: 1.5rem;
+        }
+
+        .plan p {
+            color: #64748b;
+            font-size: 0.95rem;
+            margin-bottom: 2rem;
+        }
+
+        /* Footer */
+        footer {
+            background: #1e293b;
+            color: #94a3b8;
+            padding-block: 2rem;
+            font-size: 0.875rem;
+        }
+
+        footer .wrap {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero_grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .btn_group {
+                justify-content: center;
+            }
+
+            .hero p {
+                margin-inline: auto;
+            }
+
+            nav ul {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="page">
+        <!-- Navigation -->
+        <nav class="wrap">
+            <a href="#" class="logo">BhoomiHub</a>
+            <ul>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#contact" class="btn btn-primary" style="padding: 0.4rem 1rem; font-size: 0.9rem;">Contact</a></li>
+            </ul>
+        </nav>
+
+        <!-- Hero Section -->
+        <header class="hero">
+            <div class="wrap hero_grid">
+                <div>
+                    <h1>Manage every task in one calm place.</h1>
+                    <p>Designed and built by Bhoomi (BCA AI Student). Plan projects, assign work, and hit deadlines without the chaos.</p>
+                    <div class="btn_group">
+                        <a href="#start" class="btn btn-primary">Get Started</a>
+                        <a href="#demo" class="btn btn-ghost">Watch Demo</a>
+                    </div>
+                </div>
+                <div>
+                    <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97" alt="Person working on a laptop">
+                </div>
+            </div>
+        </header>
+
+        <!-- Features Section -->
+        <section class="features" id="features">
+            <div class="wrap">
+                <h2>Why Teams Love BhoomiHub</h2>
+                <div class="features_grid">
+                    <article class="feature_card">
+                        <h3>Kanban Boards</h3>
+                        <p>Drag and drop tasks effortlessly between customizable workflow stages.</p>
+                    </article>
+                    <article class="feature_card">
+                        <h3>Smart Reminders</h3>
+                        <p>Never miss a crucial project deadline again with automated notifications.</p>
+                    </article>
+                    <article class="feature_card">
+                        <h3>Team Sharing</h3>
+                        <p>Comment, assign, and collaborate in real-time with your peers.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing Section -->
+        <section class="pricing wrap" id="pricing" style="padding-block: 5rem;">
+            <h2>Simple, Transparent Pricing</h2>
+            <div class="pricing_grid">
+                <div class="plan">
+                    <h3>Free</h3>
+                    <div class="price">₹0</div>
+                    <p>Core task management tools for individuals.</p>
+                    <a href="#" class="btn btn-ghost">Choose</a>
+                </div>
+
+                <div class="plan pop">
+                    <h3>Pro</h3>
+                    <div class="price">₹499/mo</div>
+                    <p>Unlimited projects, 20 members, and priority support.</p>
+                    <a href="#" class="btn btn-primary">Choose Pro</a>
+                </div>
+
+                <div class="plan">
+                    <h3>Team</h3>
+                    <div class="price">₹1,499/mo</div>
+                    <p>Advanced workspaces with custom AI analytics integration.</p>
+                    <a href="#" class="btn btn-ghost">Choose Team</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <div class="wrap">
+                <p>&copy; 2026 BhoomiHub &bull; Moradabad, India</p>
+                <p><a href="#">Privacy</a> &bull; <a href="#">Terms</a> &bull; <a href="#">Support</a></p>
+            </div>
+        </footer>
+    </div>
+
+</body>
+</html>

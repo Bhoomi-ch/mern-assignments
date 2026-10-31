@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="CSS Box Model Annotated Diagram by Bhoomi">
+    <title>CSS Box Model Annotated - Bhoomi</title>
+    <style>
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #0f172a;
+            --border-color: #e2e8f0;
+            
+            /* Visual Box Model Diagram Layers */
+            --margin-bg: #fee2e2;
+            --margin-color: #991b1b;
+            --border-bg: #fef3c7;
+            --border-line: #d97706;
+            --padding-bg: #dcfce7;
+            --padding-color: #166534;
+            --content-bg: #e0f2fe;
+            --content-color: #075985;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        h1, h2 {
+            color: #1e293b;
+        }
+
+        /* Target Demo Box */
+        .my-box {
+            width: 200px;
+            height: 200px;
+            padding: 20px;
+            border: 10px solid var(--border-line);
+            margin: 20px;
+            background-color: var(--content-bg);
+            display: grid;
+            place-items: center;
+            font-weight: bold;
+            color: var(--content-color);
+        }
+
+        /* Annotated Box Model Visualizer */
+        .demo-wrapper {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            align-items: flex-start;
+            margin-bottom: 2rem;
+        }
+
+        .layer {
+            display: grid;
+            place-items: center;
+            position: relative;
+            text-align: center;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border-radius: 6px;
+        }
+
+        .l-margin {
+            background: var(--margin-bg);
+            color: var(--margin-color);
+            padding: 20px;
+            border: 2px dashed #f87171;
+        }
+
+        .l-border {
+            background: var(--border-bg);
+            color: var(--border-line);
+            padding: 10px;
+            border: 2px solid var(--border-line);
+        }
+
+        .l-padding {
+            background: var(--padding-bg);
+            color: var(--padding-color);
+            padding: 20px;
+            border: 2px dashed #4ade80;
+        }
+
+        .l-content {
+            background: var(--content-bg);
+            color: var(--content-color);
+            padding: 30px 40px;
+            border: 2px solid #38bdf8;
+        }
+
+        .tag {
+            position: absolute;
+            top: 4px;
+            left: 8px;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Calculation Table */
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 1rem;
+        }
+
+        th, td {
+            border: 1px solid var(--border-color);
+            padding: 0.75rem;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f8fafc;
+        }
+
+        code {
+            background: #f1f5f9;
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 0.9em;
+        }
+
+        footer {
+            margin-top: 3rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+            color: #64748b;
+            font-size: 0.875rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>CSS Box Model Annotated</h1>
+        <p>Created by <strong>Bhoomi</strong> (BCA AI Student, Moradabad)</p>
+    </header>
+
+    <main>
+        <h2>Interactive Visual Diagram</h2>
+        <div class="demo-wrapper">
+            <!-- Annotated Box Diagram -->
+            <div class="layer l-margin">
+                <span class="tag">margin 20px</span>
+                <div class="layer l-border">
+                    <span class="tag">border 10px</span>
+                    <div class="layer l-padding">
+                        <span class="tag">padding 20px</span>
+                        <div class="layer l-content">
+                            <span>Content<br>200px &times; 200px</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h2>Box Size Calculations (Default: <code>content-box</code>)</h2>
+        <table>
+            <tr>
+                <th>Property</th>
+                <th>Calculation Formula</th>
+                <th>Total Value</th>
+            </tr>
+            <tr>
+                <td><strong>Total Width</strong></td>
+                <td>200px + (20px &times; 2) + (10px &times; 2)</td>
+                <td><strong>260px</strong> (+40px margin = 300px total horizontal space)</td>
+            </tr>
+            <tr>
+                <td><strong>Total Height</strong></td>
+                <td>200px + (20px &times; 2) + (10px &times; 2)</td>
+                <td><strong>260px</strong> (+40px margin = 300px total vertical space)</td>
+            </tr>
+        </table>
+
+        <div style="margin-top: 1.5rem; background: #f8fafc; padding: 1rem; border-radius: 6px; border: 1px solid var(--border-color);">
+            <p><strong>Note on <code>border-box</code> sizing:</strong> With <code>box-sizing: border-box</code>, the outer dimensions remain fixed at 200px, automatically shrinking the inner content space to 140px.</p>
+        </div>
+    </main>
+
+    <footer>
+        <small>&copy; 2026 Bhoomi &bull; All rights reserved.</small>
+    </footer>
+
+</body>
+</html>

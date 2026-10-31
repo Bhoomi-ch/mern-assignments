@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Responsiveness audit with fixes applied by Bhoomi">
+    <title>Responsive Audit & Fixes - Bhoomi</title>
+    <!--
+    AUDIT RESULTS (Before -> After):
+    1. Missing meta viewport -> Added meta name="viewport"
+    2. Fixed width causing horizontal overflow -> Replaced with max-width: 100%
+    3. Images overflowing cards -> img { max-width: 100%; height: auto; }
+    4. Font size too small on mobile -> Used clamp() fluid typography
+    5. Nav links overlapping -> nav { flex-wrap: wrap; }
+    6. Wide tables breaking layout -> Wrapped in overflow-x: auto container
+    7. Touch targets too small -> Increased padding on links and buttons
+    8. Multi-column grid broken on tablet -> Used grid auto-fit + minmax()
+    -->
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            line-height: 1.6;
+            background-color: #ffffff;
+            color: #0f172a;
+            padding: 1.5rem;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        /* Fix 4: Fluid typography using clamp() */
+        h1 {
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            margin-bottom: 1rem;
+            color: #1e293b;
+        }
+
+        /* Fix 5: Flex-wrap nav links to prevent overflow */
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            padding: 1rem;
+            background: #f8fafc;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+        }
+
+        /* Fix 7: Adequate touch target size */
+        nav a {
+            padding: 0.5rem 1rem;
+            background: #ffffff;
+            color: #2563eb;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 500;
+            border: 1px solid #cbd5e1;
+            transition: all 0.2s;
+        }
+
+        nav a:hover {
+            background: #2563eb;
+            color: #ffffff;
+            border-color: #2563eb;
+        }
+
+        /* Fix 8: Auto-reflowing grid for cards */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 1.25rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.03);
+        }
+
+        .card h2 {
+            font-size: 1.2rem;
+            margin-top: 0.75rem;
+            color: #0f172a;
+        }
+
+        /* Fix 3: Image max-width constraint */
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 8px;
+        }
+
+        /* Fix 6: Responsive scrollable wrapper for wide data tables */
+        .table-wrap {
+            overflow-x: auto;
+            margin-top: 1.5rem;
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            min-width: 600px;
+            font-size: 0.9rem;
+        }
+
+        th, td {
+            border-bottom: 1px solid #e2e8f0;
+            padding: 0.75rem 1rem;
+            text-align: left;
+        }
+
+        th {
+            background: #f8fafc;
+            color: #1e293b;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Responsive Audit &amp; Fixes &bull; Bhoomi</h1>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#services">Services</a>
+            <a href="#pricing">Pricing</a>
+            <a href="#blog">Blog</a>
+            <a href="#contact">Contact</a>
+        </nav>
+
+        <div class="grid">
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb" alt="Boat on a quiet lake">
+                <h2>Quiet Lake</h2>
+            </div>
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b" alt="Valley with mountain peak">
+                <h2>Mountain Valley</h2>
+            </div>
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1511884642898-4c92249e20b6" alt="Rocky canyon at dusk">
+                <h2>Rocky Canyon</h2>
+            </div>
+        </div>
+
+        <h2 style="font-size: 1.25rem; color: #1e293b;">Audit Report &amp; Status Log</h2>
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Issue Identified</th>
+                        <th>Severity</th>
+                        <th>Fix Applied</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Missing Viewport Tag</td>
+                        <td>Critical</td>
+                        <td>Added <code>meta name="viewport"</code></td>
+                        <td>✔ Fixed</td>
+                    </tr>
+                    <tr>
+                        <td>Image Overflowing Cards</td>
+                        <td>High</td>
+                        <td>Added <code>max-width: 100%</code> and <code>height: auto</code></td>
+                        <td>✔ Fixed</td>
+                    </tr>
+                    <tr>
+                        <td>Table Breaking Layout</td>
+                        <td>Medium</td>
+                        <td>Wrapped in <code>overflow-x: auto</code> container</td>
+                        <td>✔ Fixed</td>
+                    </tr>
+                    <tr>
+                        <td>Nav Links Overlapping</td>
+                        <td>Medium</td>
+                        <td>Applied <code>flex-wrap: wrap</code></td>
+                        <td>✔ Fixed</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</body>
+</html>

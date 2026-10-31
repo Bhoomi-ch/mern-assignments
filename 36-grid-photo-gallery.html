@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Photo gallery built with CSS Grid by Bhoomi">
+    <title>CSS Grid Photo Gallery - Bhoomi</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            background-color: #ffffff;
+            color: #0f172a;
+            padding: 2rem 1.5rem;
+        }
+
+        header {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 2.5rem auto;
+        }
+
+        h1 {
+            font-size: 2rem;
+            color: #1e293b;
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            color: #64748b;
+            font-size: 0.95rem;
+        }
+
+        /* CSS Grid Layout */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-auto-rows: 180px;
+            gap: 16px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .gallery figure {
+            overflow: hidden;
+            border-radius: 12px;
+            position: relative;
+            background-color: #f1f5f9;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.4s ease;
+        }
+
+        .gallery figure:hover img {
+            transform: scale(1.08);
+        }
+
+        .gallery figcaption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 0.75rem 1rem;
+            background: linear-gradient(transparent, rgba(15, 23, 42, 0.85));
+            color: #ffffff;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        /* Spanning Modifiers */
+        .wide {
+            grid-column: span 2;
+        }
+
+        .tall {
+            grid-row: span 2;
+        }
+
+        .big {
+            grid-column: span 2;
+            grid-row: span 2;
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 1024px) {
+            .gallery {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+
+            .wide, .big {
+                grid-column: auto;
+            }
+
+            .tall, .big {
+                grid-row: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Photo Gallery</h1>
+        <p>Curated photography showcase by <strong>Bhoomi</strong> (BCA AI Student, Moradabad)</p>
+    </header>
+
+    <div class="gallery">
+        <figure class="big">
+            <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb" alt="River winding through a green valley">
+            <figcaption>River Valley</figcaption>
+        </figure>
+
+        <figure>
+            <img src="https://images.unsplash.com/photo-1511884642898-4c92249e20b6" alt="Canyon walls at sunset">
+            <figcaption>Canyon Walls</figcaption>
+        </figure>
+
+        <figure class="tall">
+            <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b" alt="Misty mountain peak">
+            <figcaption>Misty Mountain</figcaption>
+        </figure>
+
+        <figure>
+            <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e" alt="Wooden jetty on a lake">
+            <figcaption>Serene Lake</figcaption>
+        </figure>
+
+        <figure class="wide">
+            <img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05" alt="Snow-covered pine forest">
+            <figcaption>Winter Forest</figcaption>
+        </figure>
+
+        <figure>
+            <img src="https://images.unsplash.com/photo-1432405972618-c60b0225b8f9" alt="Waterfall surrounded by moss">
+            <figcaption>Waterfall</figcaption>
+        </figure>
+
+        <figure>
+            <img src="https://images.unsplash.com/photo-1472214103451-9374bd1c798e" alt="Evening sky over a field">
+            <figcaption>Evening Sky</figcaption>
+        </figure>
+    </div>
+
+</body>
+</html>

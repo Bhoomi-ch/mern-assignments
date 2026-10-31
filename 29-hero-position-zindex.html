@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Hero Section with Absolute Positioning and Z-Index by Bhoomi">
+    <title>Hero Position & Z-Index - Bhoomi</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            background-color: #ffffff;
+            color: #0f172a;
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        /* Hero Container with relative positioning */
+        .hero {
+            position: relative;
+            height: 85vh;
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background-color: #0f172a;
+        }
+
+        /* Layer 1 - Background image with dark overlay */
+        .hero_bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 1;
+            opacity: 0.65;
+        }
+
+        /* Navigation bar inside hero */
+        .nav {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 3;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 2rem;
+        }
+
+        .nav a {
+            color: #ffffff;
+            text-decoration: none;
+            margin-left: 1.5rem;
+            font-weight: 500;
+        }
+
+        .logo {
+            font-weight: bold;
+            font-size: 1.25rem;
+            color: #ffffff;
+        }
+
+        /* Layer 2 - Centered content */
+        .hero_content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: #ffffff;
+            padding: 0 1rem;
+            max-width: 700px;
+        }
+
+        .hero_content h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            margin-bottom: 1rem;
+            color: #ffffff;
+        }
+
+        .hero_content p {
+            font-size: 1.15rem;
+            margin-bottom: 1.5rem;
+            color: #e2e8f0;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #2563eb;
+            color: #ffffff;
+            padding: 0.75rem 1.75rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.2s;
+        }
+
+        .btn:hover {
+            background: #1d4ed8;
+        }
+
+        /* Layer 3 - Floating badge pinned bottom-right */
+        .badge {
+            position: absolute;
+            right: 2rem;
+            bottom: 2rem;
+            z-index: 3;
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(4px);
+            color: #ffffff;
+            padding: 0.75rem 1.25rem;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+        }
+
+        .badge strong {
+            display: block;
+            font-size: 1.1rem;
+            color: #38bdf8;
+        }
+
+        /* Fixed "Back to top" action button */
+        .fab {
+            position: fixed;
+            right: 1.5rem;
+            bottom: 1.5rem;
+            z-index: 10;
+            background: #2563eb;
+            color: #ffffff;
+            padding: 0.75rem 1rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
+        }
+
+        .fab:hover {
+            background: #1d4ed8;
+        }
+
+        .next-section {
+            padding: 4rem 2rem;
+            text-align: center;
+            background-color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="hero">
+        <!-- Background Image Overlay Layer -->
+        <img class="hero_bg" src="https://picsum.photos/id/1018/1600/900" alt="Snowy mountain landscape">
+
+        <!-- Navigation Bar -->
+        <nav class="nav">
+            <span class="logo">Bhoomi's Space</span>
+            <div>
+                <a href="#destinations">Destinations</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </nav>
+
+        <!-- Centered Hero Text Content -->
+        <div class="hero_content">
+            <h1>Find Your Next Adventure</h1>
+            <p>Handpicked trips to the world's most beautiful destinations, curated by Bhoomi.</p>
+            <a href="#destinations" class="btn">Start Exploring</a>
+        </div>
+
+        <!-- Floating Badge -->
+        <div class="badge">
+            <strong>4.9/5</strong> 12,000+ happy travelers
+        </div>
+    </header>
+
+    <!-- Fixed Floating Action Button -->
+    <a href="#" class="fab" aria-label="Back to top">&uarr; Top</a>
+
+    <section class="next-section" id="destinations">
+        <h2>Popular Destinations</h2>
+        <p>Scroll content goes here — notice how the navigation stays pinned and the badge floats above the background image.</p>
+    </section>
+
+</body>
+</html>

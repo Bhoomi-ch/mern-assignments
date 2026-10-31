@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Multi-screen responsive layout upgraded with three breakpoints by Bhoomi">
+    <title>Breakpoints Multi-Screen - Bhoomi</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            line-height: 1.6;
+            background-color: #ffffff;
+            color: #0f172a;
+        }
+
+        /* Desktop First / Base Styles */
+        header {
+            background: #1e293b;
+            color: #ffffff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        header strong {
+            font-size: 1.25rem;
+        }
+
+        nav {
+            display: flex;
+            gap: 1.25rem;
+        }
+
+        nav a {
+            color: #cbd5e1;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        nav a:hover {
+            color: #ffffff;
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2.5rem 2rem;
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #1e293b;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.25rem;
+            margin-bottom: 2rem;
+        }
+
+        .card {
+            background: #ffffff;
+            padding: 1.25rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.03);
+        }
+
+        .card h2 {
+            font-size: 1.15rem;
+            margin-bottom: 0.5rem;
+            color: #0f172a;
+        }
+
+        .card p {
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+
+        .badge {
+            display: inline-block;
+            background: #eff6ff;
+            color: #2563eb;
+            padding: 0.35rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            border: 1px solid #bfdbfe;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            overflow: hidden;
+            font-size: 0.9rem;
+        }
+
+        th, td {
+            padding: 0.75rem 1rem;
+            text-align: left;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        th {
+            background: #f8fafc;
+            color: #1e293b;
+            font-weight: 600;
+        }
+
+        /* ---- BREAKPOINT 1: Tablets / Small Laptops (<= 1024px) ---- */
+        @media (max-width: 1024px) {
+            .cards {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            h1 {
+                font-size: 1.75rem;
+            }
+        }
+
+        /* ---- BREAKPOINT 2: Large Phones (<= 768px) ---- */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 0.75rem;
+                padding: 1rem;
+            }
+
+            main {
+                padding: 1.5rem 1rem;
+            }
+
+            h1 {
+                font-size: 1.5rem;
+            }
+        }
+
+        /* ---- BREAKPOINT 3: Small Phones (<= 480px) ---- */
+        @media (max-width: 480px) {
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+            nav {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <strong>Bhoomi's Dev Hub</strong>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Responsive Breakpoints Demo</h1>
+
+        <section class="cards">
+            <article class="card">
+                <h2>Home</h2>
+                <p>Landing page content and primary hero banners.</p>
+            </article>
+
+            <article class="card">
+                <h2>About</h2>
+                <p>BCA AI Student.</p>
+            </article>
+
+            <article class="card">
+                <h2>Projects</h2>
+                <p>14 standalone HTML/CSS modular components.</p>
+            </article>
+
+            <article class="card">
+                <h2>Contact</h2>
+                <p>Get in touch for collaborative AI & web projects.</p>
+            </article>
+        </section>
+
+        <span class="badge">Layout Mode: 4 cols &rarr; 2 cols &rarr; 1 col</span>
+
+        <h2 style="margin-top: 1rem; margin-bottom: 0.75rem; font-size: 1.25rem;">Test Log (Responsive Verification)</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Device / Width</th>
+                    <th>Expected Layout</th>
+                    <th>Result</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Desktop (&gt; 1024px)</td>
+                    <td>4 columns grid</td>
+                    <td>✔ Passed</td>
+                </tr>
+                <tr>
+                    <td>iPad Air (820px)</td>
+                    <td>2 columns grid</td>
+                    <td>✔ Passed</td>
+                </tr>
+                <tr>
+                    <td>iPhone 14 (390px)</td>
+                    <td>1 column, stacked header</td>
+                    <td>✔ Passed</td>
+                </tr>
+                <tr>
+                    <td>Galaxy Fold (280px)</td>
+                    <td>1 column, no horizontal scroll</td>
+                    <td>✔ Passed</td>
+                </tr>
+            </tbody>
+        </table>
+    </main>
+
+</body>
+</html>

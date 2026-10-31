@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Fixing CSS Layout Overflow Demo by Bhoomi">
+    <title>Fix Overflow Showcase - Bhoomi</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            background-color: #ffffff;
+            color: #0f172a;
+            line-height: 1.6;
+            margin: 0;
+            padding: 2rem 1rem;
+        }
+
+        /* Container constraints */
+        .wrapper {
+            max-width: 750px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            color: #1e293b;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .column {
+            width: 100%;
+            padding: 1.25rem;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            background-color: #ffffff;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .column h2 {
+            margin-top: 0;
+            font-size: 1.2rem;
+            color: #2563eb;
+        }
+
+        /* Fix 1: Responsive image scaling */
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 6px;
+        }
+
+        /* Fix 2: Break long unbreakable text & URLs */
+        .long-text {
+            overflow-wrap: anywhere;
+            word-break: break-word;
+        }
+
+        /* Fix 3: Scrollable table wrapper */
+        .table-scroll {
+            overflow-x: auto;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            min-width: 500px; /* Forces scroll container when screen is small */
+        }
+
+        th, td {
+            border: 1px solid #e2e8f0;
+            padding: 0.75rem;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f8fafc;
+        }
+
+        /* Fix 4: Scrollable fixed height box */
+        .fixed-box {
+            height: 100px;
+            overflow-y: auto;
+            border: 1px dashed #94a3b8;
+            padding: 0.75rem;
+            background-color: #f8fafc;
+            border-radius: 6px;
+        }
+
+        /* Fix 5: Code block horizontal scroll */
+        pre {
+            overflow-x: auto;
+            background: #f1f5f9;
+            padding: 1rem;
+            border-radius: 6px;
+            font-family: monospace;
+            font-size: 0.9em;
+            margin: 0;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 1rem;
+            border-top: 1px solid #e2e8f0;
+            color: #64748b;
+            font-size: 0.875rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="wrapper">
+        <header>
+            <h1>CSS Overflow Fixes</h1>
+            <p>Demonstrating layout bug fixes by <strong>Bhoomi</strong> (BCA AI Student, Moradabad)</p>
+        </header>
+
+        <main>
+            <!-- Image Responsive Fix -->
+            <div class="column">
+                <h2>1. Responsive Image Scaling</h2>
+                <img src="https://picsum.photos/800/300" alt="Sample landscape preview">
+            </div>
+
+            <!-- Long Text / URL Fix -->
+            <div class="column long-text">
+                <h2>2. Long Unbroken Text & URLs</h2>
+                <p>https://www.example.com/this/is/a/very/long/url/that/would/normally/overflow/the/layout/sideways/forever/and/ever</p>
+            </div>
+
+            <!-- Table Overflow Fix -->
+            <div class="column">
+                <h2>3. Wide Scrollable Table</h2>
+                <div class="table-scroll">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>City</th>
+                                <th>Course</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Bhoomi</td>
+                                <td>bhoomi@example.com</td>
+                                <td>Moradabad</td>
+                                <td>BCA AI</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Fixed Height Text Overflow Fix -->
+            <div class="column">
+                <h2>4. Scrollable Vertical Container</h2>
+                <div class="fixed-box">
+                    <p>This box has a fixed height limit. When long text is inserted inside, the vertical overflow setting adds a scrollbar instead of spilling over the surrounding elements.</p>
+                </div>
+            </div>
+
+            <!-- Code Block Overflow Fix -->
+            <div class="column">
+                <h2>5. Code Block Horizontal Scroll</h2>
+                <pre>const message = "This line of code is intentionally written long so that it scrolls horizontally on smaller screens.";</pre>
+            </div>
+        </main>
+
+        <footer>
+            <small>&copy; 2026 Bhoomi &bull; All rights reserved.</small>
+        </footer>
+    </div>
+
+</body>
+</html>

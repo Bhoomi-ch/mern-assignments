@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Centered Login Form using Flexbox by Bhoomi">
+    <title>Centered Login - Bhoomi</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html, body {
+            height: 100%;
+            margin: 0;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #ffffff;
+            font-family: system-ui, -apple-system, sans-serif;
+            padding: 1rem;
+            color: #0f172a;
+        }
+
+        /* Login Card Container */
+        .login {
+            width: 100%;
+            max-width: 380px;
+            background: #ffffff;
+            padding: 2.5rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -4px rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+        }
+
+        .login h2 {
+            margin: 0 0 0.5rem 0;
+            text-align: center;
+            color: #1e293b;
+            font-size: 1.5rem;
+        }
+
+        .login p.subtitle {
+            margin: 0 0 1rem 0;
+            text-align: center;
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+
+        .field {
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        .field input {
+            padding: 0.75rem;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            font: inherit;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .field input:focus {
+            border-color: #2563eb;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+        .row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+        }
+
+        .row a {
+            color: #2563eb;
+            text-decoration: none;
+        }
+
+        .row a:hover {
+            text-decoration: underline;
+        }
+
+        button {
+            padding: 0.75rem;
+            border: none;
+            border-radius: 8px;
+            background: #2563eb;
+            color: #ffffff;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+            margin-top: 0.5rem;
+        }
+
+        button:hover {
+            background: #1d4ed8;
+        }
+    </style>
+</head>
+<body>
+
+    <form class="login" action="#" method="post">
+        <h2>Welcome Back</h2>
+        <p class="subtitle">Bhoomi's Portal &bull; Moradabad</p>
+
+        <div class="field">
+            <label>Email</label>
+            <input type="email" required placeholder="bhoomi@example.com">
+        </div>
+
+        <div class="field">
+            <label>Password</label>
+            <input type="password" required minlength="6" placeholder="&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;">
+        </div>
+
+        <div class="row">
+            <label><input type="checkbox"> Remember me</label>
+            <a href="#">Forgot password?</a>
+        </div>
+
+        <button type="submit">Log In</button>
+    </form>
+
+</body>
+</html>

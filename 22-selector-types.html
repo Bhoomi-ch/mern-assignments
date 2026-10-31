@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="CSS Selector Types Showcase - Bhoomi Chaudhary">
+    <title>CSS Selector Playground - Bhoomi Chaudhary</title>
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --accent-color: #38bdf8;
+            --highlight-bg: #1e3a8a;
+            --border-color: #334155;
+            --text-color: #f8fafc;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            max-width: 850px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        /* 1. Element Selector */
+        h1 {
+            color: var(--accent-color);
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 0.5rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        /* 2. Class Selector */
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .highlight {
+            background-color: var(--highlight-bg);
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+        }
+
+        /* 3. ID Selector */
+        #special-note {
+            border-left: 4px solid #f43f5e;
+            padding-left: 1rem;
+        }
+
+        /* 4. Grouping Selector */
+        h2, h3 {
+            color: var(--accent-color);
+            margin-top: 0;
+        }
+
+        /* 5. Descendant Selector */
+        .card a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        /* 6. Child Selector */
+        ul > li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* 7. Adjacent Sibling Selector */
+        h2 + p {
+            font-weight: 500;
+        }
+
+        /* 8. Attribute Selector */
+        a[target="_blank"]::after {
+            content: " ↗";
+            font-size: 0.85em;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 0.6rem;
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
+            background: #0f172a;
+            color: var(--text-color);
+            box-sizing: border-box;
+        }
+
+        /* 9. Pseudo-classes */
+        a:hover {
+            text-decoration: underline;
+        }
+
+        input:focus {
+            outline: 2px solid var(--accent-color);
+        }
+
+        li:nth-child(odd) {
+            color: #93c5fd;
+        }
+
+        /* 10. Pseudo-elements */
+        p::first-line {
+            letter-spacing: 0.5px;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 2rem;
+            color: #94a3b8;
+            border-top: 1px solid var(--border-color);
+            padding-top: 1rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>CSS Selector Types Lab</h1>
+        <p>Created by <strong>Bhoomi Chaudhary</strong> (BCA AI Student, Moradabad)</p>
+    </header>
+
+    <main>
+        <!-- Class Selector Demonstration -->
+        <div class="card">
+            <h2>1. Class & Element Selectors</h2>
+            <p>This paragraph is styled using the element selector, while the wrapper uses <span class="highlight">.card class selector</span>.</p>
+        </div>
+
+        <!-- ID Selector Demonstration -->
+        <div class="card" id="special-note">
+            <h2>2. Unique ID Selector</h2>
+            <p>This container has a unique ID <code>#special-note</code> which adds a distinct left accent border line.</p>
+        </div>
+
+        <!-- Combinators & Attributes Demonstration -->
+        <div class="card">
+            <h2>3. Descendant, Child & Attribute Selectors</h2>
+            <p>Demonstrating list styling and external links:</p>
+            <ul>
+                <li>First item in list (styled via child selector)</li>
+                <li>Second item in list</li>
+                <li>External Link: <a href="https://developer.mozilla.org" target="_blank">MDN Web Docs</a></li>
+            </ul>
+        </div>
+
+        <!-- Pseudo-classes & Form Controls -->
+        <div class="card">
+            <h2>4. Form Controls & Interactive States</h2>
+            <form action="#">
+                <label for="student-name">Student Name:</label>
+                <input type="text" id="student-name" placeholder="Type name here (Focus state demonstration)...">
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <small>&copy; 2026 Bhoomi Chaudhary &bull; Moradabad, Uttar Pradesh</small>
+    </footer>
+
+</body>
+</html>

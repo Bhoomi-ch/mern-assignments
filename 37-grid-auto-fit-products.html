@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Responsive product grid that reflows with auto-fit and minmax by Bhoomi">
+    <title>Auto-Reflowing Product Grid - Bhoomi</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            background-color: #ffffff;
+            color: #0f172a;
+            padding: 2rem 1.5rem;
+            line-height: 1.6;
+        }
+
+        header {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 2.5rem auto;
+        }
+
+        h1 {
+            font-size: 2rem;
+            color: #1e293b;
+            margin-bottom: 0.5rem;
+        }
+
+        .note {
+            text-align: center;
+            color: #64748b;
+            font-size: 0.95rem;
+        }
+
+        .note code {
+            background-color: #f1f5f9;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-family: monospace;
+            color: #2563eb;
+        }
+
+        /* No media queries needed - the grid reflows by itself */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 1.25rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.04);
+            text-align: center;
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08);
+        }
+
+        .card img {
+            width: 100%;
+            aspect-ratio: 4 / 3;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+
+        .card h2 {
+            font-size: 1.15rem;
+            color: #1e293b;
+            margin-bottom: 0.25rem;
+        }
+
+        .price {
+            color: #047857;
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Our Products</h1>
+        <p class="note">Uses <code>grid-template-columns: repeat(auto-fit, minmax(220px, 1fr))</code> &mdash; resize the browser to see auto-reflow!</p>
+        <p class="note" style="margin-top: 0.25rem;"><small>Curated by <strong>Bhoomi</strong> (BCA AI Student, Moradabad)</small></p>
+    </header>
+
+    <main class="grid">
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd" alt="Coffee beans being poured into a cup">
+            <div>
+                <h2>Coffee Beans</h2>
+                <p class="price">₹550</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1464965911861-746a04b4bca6" alt="Fresh organic strawberries">
+            <div>
+                <h2>Strawberries</h2>
+                <p class="price">₹280</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff" alt="Loaf of sourdough bread">
+            <div>
+                <h2>Sourdough Bread</h2>
+                <p class="price">₹180</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1587049352846-4a222e784d38" alt="Healthy fruit for body">
+            <div>
+                <h2>Water Melon</h2>
+                <p class="price">₹350</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1576092768241-dec231879fc3" alt="Cup of herbal tea">
+            <div>
+                <h2>Green Tea</h2>
+                <p class="price">₹250</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d" alt="Assorted spices in wooden bowls">
+            <div>
+                <h2>Spice Box</h2>
+                <p class="price">₹480</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5" alt="Olive oil bottle with fresh olives">
+            <div>
+                <h2>Olive Oil</h2>
+                <p class="price">₹750</p>
+            </div>
+        </div>
+    </main>
+
+</body>
+</html>

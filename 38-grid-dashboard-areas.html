@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Grid Dashboard Areas template by Bhoomi">
+    <title>Grid Dashboard Areas - Bhoomi</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            background-color: #ffffff;
+            color: #0f172a;
+            padding: 1.5rem;
+            line-height: 1.5;
+        }
+
+        /* Dashboard Grid Layout using Grid Template Areas */
+        .dashboard {
+            display: grid;
+            grid-template-columns: 220px repeat(3, 1fr);
+            grid-template-rows: auto auto 1fr auto;
+            grid-template-areas:
+                "sidebar header header header"
+                "sidebar stat1  stat2  stat3"
+                "sidebar chart  chart  activity"
+                "sidebar footer footer footer";
+            gap: 1.25rem;
+            max-width: 1300px;
+            margin: 0 auto;
+            min-height: calc(100vh - 3rem);
+        }
+
+        /* Common Card Styles */
+        header, aside, section, footer {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 1.25rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.03);
+        }
+
+        /* Header Area */
+        header {
+            grid-area: header;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 {
+            font-size: 1.25rem;
+            color: #1e293b;
+        }
+
+        header span {
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+
+        /* Sidebar Area */
+        aside {
+            grid-area: sidebar;
+            background: #0f172a;
+            color: #ffffff;
+            border: none;
+        }
+
+        aside h2 {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            color: #38bdf8;
+        }
+
+        .sidebar_menu {
+            list-style: none;
+        }
+
+        .sidebar_menu li {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #1e293b;
+            color: #cbd5e1;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        .sidebar_menu li:hover, .sidebar_menu li.active {
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        /* Stat Cards */
+        .stat1 { grid-area: stat1; }
+        .stat2 { grid-area: stat2; }
+        .stat3 { grid-area: stat3; }
+
+        .stat_title {
+            color: #64748b;
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat_value {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: #0f172a;
+        }
+
+        /* Chart Area */
+        .chart {
+            grid-area: chart;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .chart h3 {
+            font-size: 1.1rem;
+            color: #1e293b;
+            margin-bottom: 1rem;
+        }
+
+        .bars {
+            display: flex;
+            align-items: flex-end;
+            gap: 1rem;
+            height: 180px;
+            padding-top: 1rem;
+        }
+
+        .bar {
+            flex: 1;
+            background: linear-gradient(180deg, #2563eb, #3b82f6);
+            border-radius: 6px 6px 0 0;
+            transition: opacity 0.2s;
+        }
+
+        .bar:hover {
+            opacity: 0.85;
+        }
+
+        /* Activity Area */
+        .activity {
+            grid-area: activity;
+        }
+
+        .activity h3 {
+            font-size: 1.1rem;
+            color: #1e293b;
+            margin-bottom: 1rem;
+        }
+
+        .activity_list {
+            list-style: none;
+        }
+
+        .activity_list li {
+            padding: 0.6rem 0;
+            border-bottom: 1px solid #f1f5f9;
+            font-size: 0.875rem;
+            color: #475569;
+        }
+
+        /* Footer Area */
+        footer {
+            grid-area: footer;
+            text-align: center;
+            color: #64748b;
+            font-size: 0.875rem;
+            padding: 0.85rem;
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 900px) {
+            .dashboard {
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: auto;
+                grid-template-areas:
+                    "header   header"
+                    "sidebar  sidebar"
+                    "stat1    stat2"
+                    "stat3    stat3"
+                    "chart    chart"
+                    "activity activity"
+                    "footer   footer";
+            }
+        }
+
+        @media (max-width: 600px) {
+            .dashboard {
+                grid-template-columns: 1fr;
+                grid-template-areas:
+                    "header"
+                    "sidebar"
+                    "stat1"
+                    "stat2"
+                    "stat3"
+                    "chart"
+                    "activity"
+                    "footer";
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="dashboard">
+        <!-- Header -->
+        <header>
+            <h1>Analytics Dashboard</h1>
+            <span>Welcome, <strong>Bhoomi</strong> (BCA AI &bull; Moradabad)</span>
+        </header>
+
+        <!-- Sidebar -->
+        <aside>
+            <h2>Bhoomi Hub</h2>
+            <ul class="sidebar_menu">
+                <li class="active">📊 Overview</li>
+                <li>👥 Users</li>
+                <li>💰 Sales</li>
+                <li>⚙️ Settings</li>
+            </ul>
+        </aside>
+
+        <!-- Stat Cards -->
+        <section class="stat1">
+            <p class="stat_title">Visitors</p>
+            <p class="stat_value">12,480</p>
+        </section>
+
+        <section class="stat2">
+            <p class="stat_title">Orders</p>
+            <p class="stat_value">830</p>
+        </section>
+
+        <section class="stat3">
+            <p class="stat_title">Revenue</p>
+            <p class="stat_value">₹81.3k</p>
+        </section>
+
+        <!-- Chart Section -->
+        <section class="chart">
+            <h3>Weekly Analytics</h3>
+            <div class="bars" aria-label="Sales chart">
+                <div class="bar" style="height: 40%;" title="Mon: 40%"></div>
+                <div class="bar" style="height: 65%;" title="Tue: 65%"></div>
+                <div class="bar" style="height: 35%;" title="Wed: 35%"></div>
+                <div class="bar" style="height: 85%;" title="Thu: 85%"></div>
+                <div class="bar" style="height: 55%;" title="Fri: 55%"></div>
+                <div class="bar" style="height: 95%;" title="Sat: 95%"></div>
+                <div class="bar" style="height: 70%;" title="Sun: 70%"></div>
+            </div>
+        </section>
+
+        <!-- Activity Section -->
+        <section class="activity">
+            <h3>Recent Activity</h3>
+            <ul class="activity_list">
+                <li>📦 New order #8124 received</li>
+                <li>👤 User signed up: Priya</li>
+                <li>💳 Refund processed #402</li>
+                <li>🚀 Model deployed v2.1</li>
+            </ul>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <p>&copy; 2026 Analytics Inc. &bull; Designed by Bhoomi</p>
+        </footer>
+    </div>
+
+</body>
+</html>
